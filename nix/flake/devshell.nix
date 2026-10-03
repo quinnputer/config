@@ -5,9 +5,14 @@
       name = "config-shell";
 
       packages = [
+        pkgs.cocogitto
         pkgs.git
         pkgs.lix
       ];
+
+      shellHook = ''
+        cog install-hook --all --overwrite
+      '';
 
       meta = {
         description = "The development environment for this configuration";
