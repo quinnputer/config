@@ -7,6 +7,7 @@ let
 
   overlays = [
     inputs.lix-module.overlays.default
+    inputs.tgirlpkgs.overlays.default
   ];
 in
 {
