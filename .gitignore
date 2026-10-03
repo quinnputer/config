@@ -1,0 +1,20 @@
+# Editor files
+/.idea
+/.vs
+/.vscode
+/.zed
+
+# Nix output files
+/result
+/result-*
+
+# Temporary files
+/temp
+/tmp
+
+# Environment files
+/*.env
+/.direnv
+
+# System files
+.DS_Store
