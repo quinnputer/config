@@ -7,6 +7,7 @@
       packages = [
         pkgs.cocogitto
         pkgs.git
+        pkgs.just
         pkgs.lix
       ];
 
