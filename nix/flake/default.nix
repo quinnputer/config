@@ -4,6 +4,7 @@
     inputs.treefmt.flakeModule
 
     ./args
+    ./checks
 
     ./devshell.nix
     ./systems.nix

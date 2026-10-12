@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "extersia-pkgs": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791773937,
+        "narHash": "sha256-QYxnRGAiJ0yh+ZhsRFiJGBoS1G6yi59+NjcZF5c5NRk=",
+        "owner": "extersia-org",
+        "repo": "pkgs",
+        "rev": "5ea457304a22297ec830f45e80c049e6e9c90dae",
+        "type": "github"
+      },
+      "original": {
+        "owner": "extersia-org",
+        "repo": "pkgs",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": [
@@ -116,6 +136,7 @@
     },
     "root": {
       "inputs": {
+        "extersia-pkgs": "extersia-pkgs",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
         "lix": "lix",
