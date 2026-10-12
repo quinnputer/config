@@ -5,6 +5,7 @@
 
     ./args
 
+    ./devshell.nix
     ./systems.nix
     ./treefmt.nix
   ];
