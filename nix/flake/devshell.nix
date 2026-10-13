@@ -7,7 +7,9 @@
       packages = [
         pkgs.cocogitto
         pkgs.git
+        pkgs.just
         pkgs.lix
+        pkgs.nh
       ];
 
       shellHook = ''

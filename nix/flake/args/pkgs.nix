@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ self, inputs, ... }:
 let
   config = {
     allowAliases = false;
@@ -6,7 +6,10 @@ let
   };
 
   overlays = [
+    self.overlays.zen
+
     inputs.extersia-pkgs.overlays.default
+    inputs.firefox-addons.overlays.default
     inputs.lix-module.overlays.default
   ];
 in
