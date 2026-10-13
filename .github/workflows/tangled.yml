@@ -1,0 +1,21 @@
+name: tangled
+run-name: Pushing repository to Tangled
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  tangled:
+    name: Push repository to Tangled
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: gwennlbh/to-tangled@v0.6
+        with:
+          repo: emo.gay/config
+          ssh-key: ${{ secrets.TANGLED_SSH_KEY }}
