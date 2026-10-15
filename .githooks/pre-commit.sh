@@ -2,4 +2,4 @@
 
 set -euo pipefail
 
-nix flake check
+nix flake check --show-trace --option allow-import-from-derivation false
