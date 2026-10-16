@@ -107,6 +107,7 @@ in
       grammars.markdown
       grammars.nix
       grammars.toml
+      grammars.xml
       grammars.yaml
     ];
   };
