@@ -4,6 +4,7 @@
   lib,
   osConfig,
   pkgs,
+  self,
   ...
 }:
 let
@@ -463,6 +464,10 @@ in
       "Mod+Shift+8".move-column-to-workspace = 8;
       "Mod+Shift+9".move-column-to-workspace = 9;
     };
+  };
+
+  xdg.dataFile."kdenlive/export/customprofiles.xml" = {
+    source = "${self}/config/kdenlive/custom-export-profiles.xml";
   };
 
   catppuccin = {
