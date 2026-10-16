@@ -6,6 +6,7 @@ let
   };
 
   overlays = [
+    self.overlays.spicetify
     self.overlays.zen
 
     inputs.extersia-pkgs.overlays.default

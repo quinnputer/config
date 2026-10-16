@@ -288,9 +288,33 @@
         "lix-module": "lix-module",
         "nixpkgs": "nixpkgs",
         "nixvim": "nixvim",
+        "spicetify": "spicetify",
         "systems": "systems",
         "treefmt": "treefmt",
         "zen-browser": "zen-browser"
+      }
+    },
+    "spicetify": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "systems"
+        ]
+      },
+      "locked": {
+        "lastModified": 1791715302,
+        "narHash": "sha256-AkjudSXIY6NAhJTc4it13lso/Ik7NCNwVJ3tJbKHtTo=",
+        "owner": "Gerg-L",
+        "repo": "spicetify-nix",
+        "rev": "50246f67d72e042291e426823dd61567b796fea9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Gerg-L",
+        "repo": "spicetify-nix",
+        "type": "github"
       }
     },
     "systems": {
