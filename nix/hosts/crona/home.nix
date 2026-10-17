@@ -252,6 +252,10 @@ in
                 name = "Drive";
                 url = "https://drive.proton.me";
               }
+              {
+                name = "Passwords";
+                url = "https://pass.proton.me";
+              }
               "separator"
               {
                 name = "GitHub";
@@ -269,6 +273,10 @@ in
               {
                 name = "Aturi";
                 url = "https://aturi.to";
+              }
+              {
+                name = "Marque";
+                url = "https://marque.at";
               }
               "separator"
               {
