@@ -9,11 +9,6 @@
   ...
 }:
 {
-  console = {
-    earlySetup = true;
-    useXkbConfig = true;
-  };
-
   boot.loader = {
     efi.canTouchEfiVariables = true;
     systemd-boot.enable = true;
