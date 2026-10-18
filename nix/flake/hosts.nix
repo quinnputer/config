@@ -48,6 +48,12 @@ in
       path = "${self}/nix/hosts/soul";
     };
 
+    hosts.tsubaki = {
+      arch = "x86_64";
+      class = "nixos";
+      path = "${self}/nix/hosts/tsubaki";
+    };
+
     shared = {
       specialArgs = { inherit keys; };
     };

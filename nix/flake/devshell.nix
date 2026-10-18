@@ -12,6 +12,7 @@
         pkgs.just
         pkgs.lix
         pkgs.nh
+        pkgs.nixos-anywhere
       ];
 
       shellHook = ''
