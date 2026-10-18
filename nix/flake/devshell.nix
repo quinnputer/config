@@ -6,6 +6,7 @@
 
       packages = [
         pkgs.agenix
+        pkgs.caligula
         pkgs.cocogitto
         pkgs.git
         pkgs.just

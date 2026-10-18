@@ -7,6 +7,13 @@
     mkIsoModule = module: mkSystemModule { iso = module; };
     mkNixosModule = module: mkSystemModule { nixos = module; };
 
+    mkNixosAndIsoModule =
+      module:
+      mkSystemModule {
+        nixos = module;
+        iso = module;
+      };
+
     mkSystemModule = values: {
       imports = [
         (values.shared or { })

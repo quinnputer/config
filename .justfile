@@ -6,7 +6,9 @@ export NH_FLAKE := justfile_directory()
 export NH_OS_FLAKE := justfile_directory()
 export NH_DARWIN_FLAKE := justfile_directory()
 
+caligula := require("caligula")
 nh := require("nh")
+nix := require("nix")
 hostname := `hostname`
 
 [doc("Build the configuration for the specified host")]
@@ -26,6 +28,12 @@ boot hostname=hostname: (builder "boot" hostname)
 [group("utilities")]
 clean scope="all": && switch
     {{ nh }} clean {{ scope }}
+
+[doc("Build the custom ISO image and burn it to a USB")]
+[group("utilities")]
+burn:
+    {{ nix }} build .#soul-iso
+    {{ caligula }} burn ./result/iso/soul-x86_64.iso
 
 [arg("command", pattern="switch|build|boot")]
 [private]

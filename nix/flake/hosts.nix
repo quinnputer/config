@@ -22,7 +22,6 @@ let
     inputs.catppuccin.nixosModules.default
     inputs.extersia-pkgs.nixosModules.default
     inputs.home-manager.nixosModules.default
-    inputs.nixpkgs.nixosModules.readOnlyPkgs
   ];
 
   modules.darwin = [
@@ -41,6 +40,12 @@ in
       arch = "x86_64";
       class = "nixos";
       path = "${self}/nix/hosts/crona";
+    };
+
+    hosts.soul = {
+      arch = "x86_64";
+      class = "iso";
+      path = "${self}/nix/hosts/soul";
     };
 
     shared = {

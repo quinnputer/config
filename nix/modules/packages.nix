@@ -1,10 +1,10 @@
 { mkSystemModule, ... }:
+let
+  nixos.fonts.enableDefaultPackages = false;
+in
 mkSystemModule {
-  shared = {
-    environment.defaultPackages = [ ];
-  };
+  inherit nixos;
 
-  nixos = {
-    fonts.enableDefaultPackages = false;
-  };
+  shared.environment.defaultPackages = [ ];
+  iso = nixos;
 }

@@ -1,4 +1,4 @@
-{ mkNixosModule, ... }:
-mkNixosModule {
+{ mkNixosAndIsoModule, ... }:
+mkNixosAndIsoModule {
   networking.useNetworkd = true;
 }

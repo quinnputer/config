@@ -1,8 +1,8 @@
-{ mkNixosModule, ... }:
-mkNixosModule {
+{ mkNixosAndIsoModule, class, ... }:
+mkNixosAndIsoModule {
   programs.nh = {
     enable = true;
-    clean.enable = true;
+    clean.enable = class != "iso";
   };
 
   environment.variables = {

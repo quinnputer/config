@@ -1,10 +1,15 @@
-{ mkSystemModule, lib, ... }:
+{
+  class,
+  lib,
+  mkSystemModule,
+  ...
+}:
 let
   mkKeyValue = lib.generators.mkKeyValueDefault { } " ";
   mkKeyValues = lib.generators.toKeyValue { inherit mkKeyValue; };
 
   settings = {
-    PasswordAuthentication = false;
+    PasswordAuthentication = class == "iso";
   };
 in
 mkSystemModule {
@@ -13,6 +18,10 @@ mkSystemModule {
   };
 
   nixos.services.openssh = {
+    inherit settings;
+  };
+
+  iso.services.openssh = {
     inherit settings;
   };
 
