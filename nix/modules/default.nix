@@ -2,6 +2,7 @@
   imports = [
     ./lib
     ./security
+    ./settings
     ./utilities
 
     ./packages.nix
