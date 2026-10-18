@@ -5,6 +5,7 @@
       name = "config-shell";
 
       packages = [
+        pkgs.agenix
         pkgs.cocogitto
         pkgs.git
         pkgs.just

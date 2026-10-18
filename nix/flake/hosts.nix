@@ -6,6 +6,7 @@
 }:
 let
   modules.nixos = [
+    inputs.agenix.nixosModules.default
     inputs.catppuccin.nixosModules.default
     inputs.disko.nixosModules.default
     inputs.extersia-pkgs.nixosModules.default
@@ -21,6 +22,7 @@ let
   ];
 
   modules.darwin = [
+    inputs.agenix.darwinModules.default
     inputs.catppuccin.darwinModules.default
     inputs.extersia-pkgs.darwinModules.default
     inputs.home-manager.darwinModules.default

@@ -4,6 +4,11 @@
 
   inputs = {
     # keep-sorted start block=yes newline_separated=yes
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     catppuccin = {
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";

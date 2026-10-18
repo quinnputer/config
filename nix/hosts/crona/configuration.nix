@@ -77,6 +77,11 @@
     sudo-shim.enable = true;
   };
 
+  age.secrets = {
+    "passwords/quinn".file = "${self}/nix/secrets/crona/passwords/quinn.age";
+    "passwords/root".file = "${self}/nix/secrets/crona/passwords/root.age";
+  };
+
   programs = {
     gamemode.enable = true;
     git.enable = true;
@@ -180,10 +185,16 @@
     ];
   };
 
+  users = {
+    defaultUserShell = pkgs.bashInteractive;
+    mutableUsers = false;
+  };
+
   users.users.quinn = {
     isNormalUser = true;
     createHome = true;
     description = "Quinn Heyman";
+    hashedPasswordFile = config.age.secrets."passwords/quinn".path;
     shell = pkgs.bashInteractive;
 
     extraGroups = [
@@ -193,6 +204,10 @@
       "video"
       "wheel"
     ];
+  };
+
+  users.users.root = {
+    hashedPasswordFile = config.age.secrets."passwords/root".path;
   };
 
   home-manager = {
@@ -207,6 +222,7 @@
     };
 
     sharedModules = [
+      inputs.agenix.homeManagerModules.default
       inputs.catppuccin.homeModules.default
       inputs.extersia-pkgs.homeModules.default
       inputs.nixvim.homeModules.default
