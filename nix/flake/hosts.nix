@@ -2,10 +2,12 @@
   inputs,
   lib,
   self,
+  soul-lib,
   ...
 }:
 let
   modules.nixos = [
+    self.nixosModules.default
     inputs.agenix.nixosModules.default
     inputs.catppuccin.nixosModules.default
     inputs.disko.nixosModules.default
@@ -15,6 +17,7 @@ let
   ];
 
   modules.iso = [
+    self.nixosModules.default
     inputs.catppuccin.nixosModules.default
     inputs.extersia-pkgs.nixosModules.default
     inputs.home-manager.nixosModules.default
@@ -22,6 +25,7 @@ let
   ];
 
   modules.darwin = [
+    self.darwinModules.default
     inputs.agenix.darwinModules.default
     inputs.catppuccin.darwinModules.default
     inputs.extersia-pkgs.darwinModules.default
@@ -40,6 +44,7 @@ in
 
     perClass = class: {
       modules = lib.getAttr class modules;
+      specialArgs = soul-lib.modules.mkHelpers class;
     };
   };
 }

@@ -6,10 +6,13 @@
 
     ./args
     ./checks
+    ./lib
+    ./options
     ./overlays
 
     ./devshell.nix
     ./hosts.nix
+    ./modules.nix
     ./systems.nix
     ./treefmt.nix
   ];

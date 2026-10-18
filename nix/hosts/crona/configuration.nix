@@ -10,8 +10,6 @@
 }:
 {
   system = {
-    stateVersion = config.system.nixos.release;
-    configurationRevision = self.rev or self.dirtRev or null;
     disableInstallerTools = true;
   };
 
