@@ -1,6 +1,7 @@
 {
   imports = [
     ./lib
+    ./networking
     ./security
     ./settings
     ./utilities

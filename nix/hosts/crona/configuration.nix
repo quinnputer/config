@@ -15,7 +15,6 @@
   };
 
   networking = {
-    useNetworkd = true;
     networkmanager.enable = true;
   };
 
@@ -55,23 +54,6 @@
   services.xserver.xkb = {
     layout = "us";
     options = "caps:escape";
-  };
-
-  services.openssh = {
-    enable = true;
-    settings.PasswordAuthentication = false;
-  };
-
-  services.avahi = {
-    enable = true;
-    nssmdns4 = true;
-    openFirewall = true;
-
-    publish = {
-      enable = true;
-      addresses = true;
-      userServices = true;
-    };
   };
 
   services.pipewire = {
