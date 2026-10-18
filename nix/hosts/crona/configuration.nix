@@ -2,6 +2,7 @@
   config,
   inputs',
   inputs,
+  keys,
   lib,
   pkgs,
   self',
@@ -119,6 +120,7 @@
     description = "Quinn Heyman";
     hashedPasswordFile = config.age.secrets."passwords/quinn".path;
     shell = pkgs.bashInteractive;
+    openssh.authorizedKeys.keys = keys.all;
 
     extraGroups = [
       "audio"
@@ -131,6 +133,7 @@
 
   users.users.root = {
     hashedPasswordFile = config.age.secrets."passwords/root".path;
+    openssh.authorizedKeys.keys = keys.all;
   };
 
   home-manager = {

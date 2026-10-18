@@ -1,5 +1,6 @@
 {
   inputs,
+  keys,
   lib,
   self,
   soul-lib,
@@ -40,6 +41,10 @@ in
       arch = "x86_64";
       class = "nixos";
       path = "${self}/nix/hosts/crona";
+    };
+
+    shared = {
+      specialArgs = { inherit keys; };
     };
 
     perClass = class: {
