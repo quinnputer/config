@@ -1,4 +1,4 @@
 { pkgs, soul-lib, ... }:
 {
-  lib.systems = soul-lib.systems.mkHelpers pkgs;
+  lib.soul.systems = soul-lib.systems.mkHelpers pkgs;
 }

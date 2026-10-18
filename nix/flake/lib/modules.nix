@@ -9,7 +9,7 @@
 
     mkSystemModule = values: {
       imports = [
-        (values.shared)
+        (values.shared or { })
         (values.${class} or { })
       ];
     };

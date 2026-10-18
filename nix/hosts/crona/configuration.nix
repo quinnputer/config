@@ -9,15 +9,6 @@
   ...
 }:
 {
-  system = {
-    disableInstallerTools = true;
-  };
-
-  system.tools = {
-    nixos-version.enable = true;
-    nixos-rebuild.enable = true;
-  };
-
   console = {
     earlySetup = true;
     useXkbConfig = true;
@@ -39,30 +30,6 @@
   networking = {
     useNetworkd = true;
     networkmanager.enable = true;
-  };
-
-  nix = {
-    channel.enable = false;
-    optimise.automatic = true;
-  };
-
-  nix.settings = {
-    keep-going = true;
-    keep-outputs = true;
-    keep-derivations = true;
-
-    warn-dirty = false;
-    use-xdg-base-directories = true;
-
-    allowed-users = [ "@wheel" ];
-    trusted-users = [ "@wheel" ];
-
-    experimental-features = [
-      "flakes"
-      "lix-custom-sub-commands"
-      "nix-command"
-      "pipe-operator"
-    ];
   };
 
   security = {
@@ -229,10 +196,6 @@
     ];
   };
 
-  environment = {
-    defaultPackages = [ ];
-  };
-
   environment.shells = [
     pkgs.nushell
   ];
@@ -241,23 +204,16 @@
     pkgs.crosspatch
     pkgs.gimp
     pkgs.kdePackages.kdenlive
-    pkgs.lix-diff
     pkgs.mkvtoolnix
     pkgs.proton-vpn
     pkgs.qbittorrent
     pkgs.qpwgraph
     pkgs.signal-desktop
     pkgs.syncplay
-    pkgs.unrar
-    pkgs.unzip
     pkgs.wiremix
     pkgs.wl-clipboard
     pkgs.xwayland-satellite
   ];
-
-  fonts = {
-    enableDefaultPackages = false;
-  };
 
   fonts.fontconfig = {
     enable = true;

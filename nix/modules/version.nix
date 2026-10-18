@@ -1,6 +1,6 @@
 { config, ... }:
 {
-  system.stateVersion = config.lib.systems.switch {
+  system.stateVersion = config.lib.soul.systems.switch {
     linux = config.system.nixos.release;
     darwin = config.system.maxStateVersion;
   };
