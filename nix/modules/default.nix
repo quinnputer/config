@@ -1,6 +1,7 @@
 {
   imports = [
     ./lib
+    ./security
     ./utilities
 
     ./packages.nix

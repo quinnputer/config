@@ -34,12 +34,6 @@
 
   security = {
     rtkit.enable = true;
-    sudo.enable = false;
-  };
-
-  security.run0 = {
-    enable = true;
-    sudo-shim.enable = true;
   };
 
   age.secrets = {
