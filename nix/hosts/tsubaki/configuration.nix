@@ -43,17 +43,6 @@
   };
 
   home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    backupFileExtension = "home-manager-backup";
-
-    sharedModules = [
-      inputs.agenix.homeManagerModules.default
-      inputs.catppuccin.homeModules.default
-      inputs.extersia-pkgs.homeModules.default
-      inputs.nixvim.homeModules.default
-      inputs.spicetify.homeManagerModules.default
-      inputs.zen-browser.homeModules.default
-    ];
+    users.quinn = { };
   };
 }

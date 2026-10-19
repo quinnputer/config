@@ -29,6 +29,16 @@ boot hostname=hostname: (builder "boot" hostname)
 provision hostname address:
     {{ nixos-anywhere }} --flake .#{{ hostname }} --target-host {{ address }}
 
+[doc("Build the configuration for the specified host remotely and show the diff")]
+[group("servers")]
+diff hostname:
+    {{ nh }} os build --hostname {{ hostname }} --target-host {{ hostname }} --show-trace
+
+[doc("Deploy the configuration for the specified host")]
+[group("servers")]
+deploy hostname:
+    {{ nh }} os switch --hostname {{ hostname }} --target-host root@{{ hostname }} --show-trace
+
 [arg("scope", pattern="all|profile|user")]
 [doc("Run garbage collection on the current system and rebuild the configuration")]
 [group("utilities")]
