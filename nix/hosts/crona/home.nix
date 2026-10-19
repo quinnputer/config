@@ -14,10 +14,6 @@ let
   colors = (lib.getAttr config.catppuccin.flavor palette).colors;
 in
 {
-  home = {
-    preferXdgDirectories = true;
-  };
-
   home.pointerCursor = {
     enable = true;
     name = "Bibata-Modern-Ice";
@@ -40,21 +36,6 @@ in
   qt = {
     enable = true;
     style.name = "kvantum";
-  };
-
-  xdg.userDirs = {
-    enable = true;
-    createDirectories = true;
-
-    desktop = "${homeDirectory}/desktop";
-    documents = "${homeDirectory}/documents";
-    download = "${homeDirectory}/downloads";
-    music = "${homeDirectory}/music";
-    pictures = "${homeDirectory}/pictures";
-    projects = "${homeDirectory}/projects";
-    publicShare = "${homeDirectory}/public";
-    templates = "${homeDirectory}/templates";
-    videos = "${homeDirectory}/videos";
   };
 
   programs = {
