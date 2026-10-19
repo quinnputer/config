@@ -1,11 +1,9 @@
 {
   config,
-  inputs',
   inputs,
   keys,
   lib,
   pkgs,
-  self',
   self,
   ...
 }:
@@ -137,24 +135,7 @@
   };
 
   home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    backupFileExtension = "home-manager-backup";
     users.quinn = ./home.nix;
-
-    extraSpecialArgs = {
-      inherit inputs self;
-      inherit inputs' self';
-    };
-
-    sharedModules = [
-      inputs.agenix.homeManagerModules.default
-      inputs.catppuccin.homeModules.default
-      inputs.extersia-pkgs.homeModules.default
-      inputs.nixvim.homeModules.default
-      inputs.spicetify.homeManagerModules.default
-      inputs.zen-browser.homeModules.default
-    ];
   };
 
   environment.shells = [

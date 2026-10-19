@@ -15,7 +15,6 @@ let
 in
 {
   home = {
-    stateVersion = config.home.version.release;
     preferXdgDirectories = true;
   };
 
