@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   keys,
   pkgs,
   self,
@@ -44,5 +43,10 @@
 
   home-manager = {
     users.quinn = { };
+  };
+
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
   };
 }
