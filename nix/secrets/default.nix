@@ -2,6 +2,9 @@ let
   keys = import ./keys.nix;
 in
 {
+  "blackstar/passwords/quinn.age".publicKeys = keys.blackstar.all;
+  "blackstar/passwords/root.age".publicKeys = keys.blackstar.all;
+
   "crona/passwords/quinn.age".publicKeys = keys.crona.all;
   "crona/passwords/root.age".publicKeys = keys.crona.all;
 
