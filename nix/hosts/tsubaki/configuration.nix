@@ -6,11 +6,6 @@
   ...
 }:
 {
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    systemd-boot.enable = true;
-  };
-
   services.xserver.xkb = {
     layout = "us";
     options = "caps:escape";

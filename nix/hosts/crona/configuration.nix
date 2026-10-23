@@ -8,11 +8,6 @@
   ...
 }:
 {
-  boot.loader = {
-    efi.canTouchEfiVariables = true;
-    systemd-boot.enable = true;
-  };
-
   networking = {
     networkmanager.enable = true;
   };
