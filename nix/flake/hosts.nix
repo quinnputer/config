@@ -42,11 +42,11 @@ in
       path = "${self}/nix/hosts/crona";
     };
 
-    hosts.soul = {
-      arch = "x86_64";
-      class = "iso";
-      path = "${self}/nix/hosts/soul";
-    };
+    # hosts.soul = {
+    #   arch = "x86_64";
+    #   class = "iso";
+    #   path = "${self}/nix/hosts/soul";
+    # };
 
     hosts.tsubaki = {
       arch = "x86_64";
