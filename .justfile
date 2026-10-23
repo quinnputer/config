@@ -1,6 +1,9 @@
 # Edit and decrypt Agenix secrets
 mod secrets "./scripts/secrets.just"
 
+# Recipes for working with the Quickshell configuration
+mod quickshell "./scripts/quickshell.just"
+
 export NH_ELEVATION_STRATEGY := if os() == "linux" { "run0" } else { "sudo" }
 export NH_FLAKE := justfile_directory()
 export NH_OS_FLAKE := justfile_directory()

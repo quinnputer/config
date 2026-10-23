@@ -346,12 +346,18 @@ in
     };
   };
 
+  programs.quickshell = {
+    enable = true;
+    configs.default = "${self}/config/quickshell";
+  };
+
   wayland.windowManager.niri = {
     enable = true;
 
     settings = {
       prefer-no-csd = { };
       screenshot-path = "${config.xdg.userDirs.pictures}/screenshots/%Y-%m-%d_%H-%M-%S.png";
+      spawn-at-startup = lib.getExe pkgs.quickshell;
     };
 
     settings.input = {
@@ -409,9 +415,9 @@ in
       skip-at-startup = { };
     };
 
-    settings.window-rule = {
-      geometry-corner-radius = 6;
-      clip-to-geometry = true;
+    settings.layer-rule = {
+      match._props.namespace = "wallpaper";
+      place-within-backdrop = true;
     };
 
     settings.binds = {
@@ -452,10 +458,29 @@ in
       "Mod+Shift+8".move-column-to-workspace = 8;
       "Mod+Shift+9".move-column-to-workspace = 9;
     };
+
+    settings._children = [
+      {
+        window-rule = {
+          geometry-corner-radius = 6;
+          clip-to-geometry = true;
+        };
+      }
+      {
+        window-rule = {
+          match._props.app-id = "kitty";
+          background-effect.blur = true;
+        };
+      }
+    ];
   };
 
   xdg.dataFile."kdenlive/export/customprofiles.xml" = {
     source = "${self}/config/kdenlive/custom-export-profiles.xml";
+  };
+
+  xdg.configFile."quickshell.json".text = builtins.toJSON {
+    wallpaper = "${self}/assets/wallpapers/catppuccin-blossoms.png";
   };
 
   catppuccin = {

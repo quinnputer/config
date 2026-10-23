@@ -4,7 +4,7 @@
     devShells.default = pkgs.mkShell {
       name = "config-shell";
 
-      packages = [
+      packages = lib.flatten [
         pkgs.agenix
         pkgs.caligula
         pkgs.cocogitto
@@ -13,6 +13,7 @@
         pkgs.lix
         pkgs.nh
         pkgs.nixos-anywhere
+        (lib.optional pkgs.stdenv.hostPlatform.isLinux pkgs.quickshell)
       ];
 
       shellHook = ''
