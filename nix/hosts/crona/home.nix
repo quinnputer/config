@@ -48,6 +48,14 @@ in
     yazi.enable = true;
   };
 
+  programs.secretspec = {
+    enable = true;
+
+    settings.defaults = {
+      provider = "dotenv";
+    };
+  };
+
   programs.zoxide = {
     enable = true;
     options = [ "--cmd cd" ];

@@ -81,6 +81,48 @@ in
     expandtab = true;
   };
 
+  files."ftplugin/json.lua".localOpts = {
+    shiftwidth = 2;
+    tabstop = 2;
+    softtabstop = 2;
+    expandtab = true;
+  };
+
+  files."ftplugin/css.lua".localOpts = {
+    shiftwidth = 2;
+    tabstop = 2;
+    softtabstop = 2;
+    expandtab = true;
+  };
+
+  files."ftplugin/html.lua".localOpts = {
+    shiftwidth = 2;
+    tabstop = 2;
+    softtabstop = 2;
+    expandtab = true;
+  };
+
+  files."ftplugin/astro.lua".localOpts = {
+    shiftwidth = 2;
+    tabstop = 2;
+    softtabstop = 2;
+    expandtab = true;
+  };
+
+  files."ftplugin/typescript.lua".localOpts = {
+    shiftwidth = 2;
+    tabstop = 2;
+    softtabstop = 2;
+    expandtab = true;
+  };
+
+  files."ftplugin/javascript.lua".localOpts = {
+    shiftwidth = 2;
+    tabstop = 2;
+    softtabstop = 2;
+    expandtab = true;
+  };
+
   colorschemes.catppuccin = {
     enable = true;
 
@@ -101,12 +143,18 @@ in
     indent.enable = true;
 
     grammarPackages = [
+      grammars.astro
       grammars.bash
+      grammars.css
+      grammars.javascript
+      grammars.json
       grammars.just
       grammars.lua
       grammars.markdown
       grammars.nix
+      grammars.svelte
       grammars.toml
+      grammars.typescript
       grammars.xml
       grammars.yaml
     ];
@@ -122,11 +170,19 @@ in
       };
 
       formatters_by_ft = {
+        astro = [ "prettier" ];
+        css = [ "prettier" ];
+        html = [ "prettier" ];
+        javascript = [ "prettier" ];
+        json = [ "prettier" ];
         nix = [ "nixfmt" ];
+        svelte = [ "prettier" ];
+        typescript = [ "prettier" ];
       };
 
       formatters = {
         nixfmt.command = lib.getExe pkgs.nixfmt;
+        prettier.command = lib.getExe pkgs.prettier;
       };
     };
   };
@@ -135,7 +191,24 @@ in
     enable = true;
 
     servers = {
+      astro.enable = true;
+      cssls.enable = true;
+      html.enable = true;
+      jsonls.enable = true;
       nixd.enable = true;
+      svelte.enable = true;
+      tailwindcss.enable = true;
+      ts_ls.enable = true;
+    };
+  };
+
+  plugins.blink-cmp = {
+    enable = true;
+
+    settings.keymap = {
+      preset = "enter";
+      "<Tab>" = [ "select_next" ];
+      "<S-Tab>" = [ "select_prev" ];
     };
   };
 
