@@ -312,6 +312,7 @@
         "spicetify": "spicetify",
         "systems": "systems",
         "treefmt": "treefmt",
+        "website": "website",
         "zen-browser": "zen-browser"
       }
     },
@@ -370,6 +371,35 @@
       "original": {
         "owner": "numtide",
         "repo": "treefmt-nix",
+        "type": "github"
+      }
+    },
+    "website": {
+      "inputs": {
+        "flake-parts": [
+          "flake-parts"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "systems": [
+          "systems"
+        ],
+        "treefmt": [
+          "treefmt"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793204570,
+        "narHash": "sha256-vlfigxd0fQcKinE4QhPYmSdlSzTrO4mp+1ao8rh1Muk=",
+        "owner": "quinnputer",
+        "repo": "website",
+        "rev": "21a975aa7f55be5fca6d552b9c78c3fa14fc1fe5",
+        "type": "github"
+      },
+      "original": {
+        "owner": "quinnputer",
+        "repo": "website",
         "type": "github"
       }
     },

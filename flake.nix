@@ -91,6 +91,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    website = {
+      url = "github:quinnputer/website";
+      inputs.flake-parts.follows = "flake-parts";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.systems.follows = "systems";
+      inputs.treefmt.follows = "treefmt";
+    };
+
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.home-manager.follows = "home-manager";

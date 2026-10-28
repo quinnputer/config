@@ -51,6 +51,11 @@
     defaults.email = "quinn@emo.gay";
   };
 
+  services.website = {
+    enable = true;
+    port = 6767;
+  };
+
   services.nginx = {
     enable = true;
 
@@ -69,6 +74,12 @@
           proxy_set_header X-Forwarded-Proto $scheme;
         '';
       };
+    };
+
+    virtualHosts."emo.gay" = {
+      enableACME = true;
+      forceSSL = true;
+      locations."/".proxyPass = "http://localhost:${toString config.services.website.port}";
     };
   };
 
