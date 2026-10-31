@@ -7,11 +7,11 @@ let
 
   overlays = [
     self.overlays.spicetify
-    self.overlays.zen
 
     inputs.agenix.overlays.default
     inputs.extersia-pkgs.overlays.default
     inputs.firefox-addons.overlays.default
+    inputs.glide.overlays.default
     inputs.lix-module.overlays.default
   ];
 in

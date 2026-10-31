@@ -165,28 +165,18 @@ in
     imports = [ ./neovim.nix ];
   };
 
-  programs.zen-browser = {
+  programs.glide-browser = {
     enable = true;
-    setAsDefaultBrowser = true;
 
     profiles.default = {
       name = "Default";
       isDefault = true;
-      containersForce = true;
-      spacesForce = true;
-      pinsForce = true;
 
       settings = {
         "browser.toolbars.bookmarks.visibility" = "always";
         "extensions.autoDisableScopes" = false;
         "general.autoScroll" = true;
         "middlemouse.paste" = false;
-        "zen.urlbar.replace-newtab" = false;
-        "zen.view.compact.enable-at-startup" = true;
-        "zen.view.compact.hide-tabbar" = true;
-        "zen.view.compact.hide-toolbar" = false;
-        "zen.view.use-single-toolbar" = false;
-        "zen.welcome-screen.seen" = true;
       };
 
       search = {
@@ -199,6 +189,7 @@ in
 
         packages = [
           pkgs.firefox-addons.catppuccin-web-file-icons
+          pkgs.firefox-addons.firefox-color
           pkgs.firefox-addons.proton-pass
           pkgs.firefox-addons.shinigami-eyes
           pkgs.firefox-addons.sponsorblock
@@ -333,24 +324,6 @@ in
           }
         ];
       };
-
-      containers.default = {
-        color = "purple";
-        icon = "fingerprint";
-        id = 1;
-      };
-
-      spaces.default = {
-        id = "13a3da61-48c4-4d49-8166-174419b311a7";
-        position = 1000;
-        container = config.programs.zen-browser.profiles.default.containers.default.id;
-
-        theme.colors = lib.singleton {
-          red = colors.base.rgb.r;
-          green = colors.base.rgb.g;
-          blue = colors.base.rgb.b;
-        };
-      };
     };
   };
 
@@ -433,7 +406,7 @@ in
       "Mod+S".screenshot = { };
 
       "Mod+Return".spawn = lib.getExe pkgs.kitty;
-      "Mod+B".spawn = lib.getExe pkgs.zen-browser;
+      "Mod+B".spawn = lib.getExe pkgs.glide-browser-bin;
 
       "Mod+F".maximize-column = { };
       "Mod+Shift+F".fullscreen-window = { };

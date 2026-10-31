@@ -188,6 +188,29 @@
         "type": "github"
       }
     },
+    "glide": {
+      "inputs": {
+        "home-manager": [
+          "home-manager"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792621440,
+        "narHash": "sha256-e4MNi8eB64VPnCRAcDziSSFdyVOzpgi4vPa6Tbc8ii8=",
+        "owner": "glide-browser",
+        "repo": "glide.nix",
+        "rev": "d5725b07982374282336e29c9aa17157e477e5c8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "glide-browser",
+        "repo": "glide.nix",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -304,6 +327,7 @@
         "firefox-addons": "firefox-addons",
         "flake-parts": "flake-parts",
         "flake-utils": "flake-utils",
+        "glide": "glide",
         "home-manager": "home-manager",
         "lix": "lix",
         "lix-module": "lix-module",
@@ -312,8 +336,7 @@
         "spicetify": "spicetify",
         "systems": "systems",
         "treefmt": "treefmt",
-        "website": "website",
-        "zen-browser": "zen-browser"
+        "website": "website"
       }
     },
     "spicetify": {
@@ -400,29 +423,6 @@
       "original": {
         "owner": "quinnputer",
         "repo": "website",
-        "type": "github"
-      }
-    },
-    "zen-browser": {
-      "inputs": {
-        "home-manager": [
-          "home-manager"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1793309674,
-        "narHash": "sha256-d1Tvbgn//HQ3f1PDh/iIMEpvuUu9Lc4lJqiwGl18cY8=",
-        "owner": "0xc000022070",
-        "repo": "zen-browser-flake",
-        "rev": "2656d974602749ca5594b133e3022a241ab5d4e0",
-        "type": "github"
-      },
-      "original": {
-        "owner": "0xc000022070",
-        "repo": "zen-browser-flake",
         "type": "github"
       }
     }
