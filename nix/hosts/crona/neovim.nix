@@ -123,6 +123,10 @@ in
     expandtab = true;
   };
 
+  files."ftplugin/rust.lua".localOpts = {
+    expandtab = false;
+  };
+
   colorschemes.catppuccin = {
     enable = true;
 
@@ -152,6 +156,7 @@ in
       grammars.lua
       grammars.markdown
       grammars.nix
+      grammars.rust
       grammars.svelte
       grammars.toml
       grammars.typescript
@@ -176,6 +181,7 @@ in
         javascript = [ "prettier" ];
         json = [ "prettier" ];
         nix = [ "nixfmt" ];
+        rust = [ "rustfmt" ];
         svelte = [ "prettier" ];
         typescript = [ "prettier" ];
       };
@@ -183,6 +189,7 @@ in
       formatters = {
         nixfmt.command = lib.getExe pkgs.nixfmt;
         prettier.command = lib.getExe pkgs.prettier;
+        rustfmt.command = lib.getExe pkgs.rustfmt;
       };
     };
   };
@@ -199,6 +206,12 @@ in
       svelte.enable = true;
       tailwindcss.enable = true;
       ts_ls.enable = true;
+    };
+
+    servers.rust_analyzer = {
+      enable = true;
+      installCargo = true;
+      installRustc = true;
     };
   };
 
