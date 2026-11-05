@@ -139,6 +139,7 @@
 
   environment.systemPackages = [
     pkgs.crosspatch
+    pkgs.ffmpeg
     pkgs.gimp
     pkgs.kdePackages.kdenlive
     pkgs.mkvtoolnix
