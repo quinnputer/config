@@ -45,7 +45,16 @@ in
     lazygit.enable = true;
     nix-your-shell.enable = true;
     vesktop.enable = true;
-    yazi.enable = true;
+  };
+
+  programs.yazi = {
+    enable = true;
+
+    vfs.sftp.tsubaki = {
+      host = "tsubaki.local";
+      user = "quinn";
+      port = 22;
+    };
   };
 
   programs.secretspec = {
