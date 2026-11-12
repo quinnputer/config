@@ -1,29 +1,46 @@
 { lib, ... }:
+let
+  script = ''
+    cog install-hook --all --overwrite
+  '';
+in
 {
-  perSystem = { pkgs, ... }: {
-    devShells.default = pkgs.mkShell {
-      name = "config-shell";
+  perSystem =
+    { pkgs, ... }:
+    let
+      inherit (pkgs.stdenv.hostPlatform) isLinux;
 
-      packages = lib.flatten [
-        pkgs.agenix
-        pkgs.caligula
-        pkgs.cocogitto
-        pkgs.git
-        pkgs.just
-        pkgs.lix
-        pkgs.nh
-        pkgs.nixos-anywhere
-        (lib.optional pkgs.stdenv.hostPlatform.isLinux pkgs.quickshell)
-      ];
+      qmlLibs = "${pkgs.qt6.qtdeclarative}/lib/qt-6/qml";
+    in
+    {
+      devShells.default = pkgs.mkShell (finalAttrs: {
+        name = "config-shell";
+        shellHook = script;
 
-      shellHook = ''
-        cog install-hook --all --overwrite
-      '';
+        QML_IMPORT_PATH = if isLinux then qmlLibs else null;
+        QMLLS_BUILD_DIRS = finalAttrs.QML_IMPORT_PATH;
 
-      meta = {
-        description = "The development environment for this configuration.";
-        platforms = lib.platforms.all;
-      };
+        packages = lib.flatten [
+          pkgs.agenix
+          pkgs.caligula
+          pkgs.cocogitto
+          pkgs.git
+          pkgs.just
+          pkgs.lix
+          pkgs.nh
+          pkgs.nixos-anywhere
+
+          (lib.optionals isLinux [
+            pkgs.quickshell
+            pkgs.qt6.qtdeclarative
+            pkgs.qt6.qtbase
+          ])
+        ];
+
+        meta = {
+          description = "The development environment for this configuration.";
+          platforms = lib.platforms.all;
+        };
+      });
     };
-  };
 }

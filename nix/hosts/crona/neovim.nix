@@ -41,6 +41,10 @@ in
     incsearch = true;
   };
 
+  diagnostic.settings = {
+    virtual_text.enable = true;
+  };
+
   keymaps = [
     {
       mode = "n";
@@ -156,6 +160,7 @@ in
       grammars.lua
       grammars.markdown
       grammars.nix
+      grammars.qmljs
       grammars.rust
       grammars.svelte
       grammars.toml
@@ -181,6 +186,7 @@ in
         javascript = [ "prettier" ];
         json = [ "prettier" ];
         nix = [ "nixfmt" ];
+        qml = [ "qmlformat" ];
         rust = [ "rustfmt" ];
         svelte = [ "prettier" ];
         typescript = [ "prettier" ];
@@ -189,6 +195,7 @@ in
       formatters = {
         nixfmt.command = lib.getExe pkgs.nixfmt;
         prettier.command = lib.getExe pkgs.prettier;
+        qmlformat.command = lib.getExe' pkgs.kdePackages.qtdeclarative "qmlformat";
         rustfmt.command = lib.getExe pkgs.rustfmt;
       };
     };
@@ -212,6 +219,15 @@ in
       enable = true;
       installCargo = true;
       installRustc = true;
+    };
+
+    servers.qmlls = {
+      enable = true;
+
+      cmd = [
+        (lib.getExe' pkgs.kdePackages.qtdeclarative "qmlls")
+        "-E"
+      ];
     };
   };
 
