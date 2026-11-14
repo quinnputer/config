@@ -37,10 +37,11 @@ provision hostname address:
 diff hostname:
     {{ nh }} os build --hostname {{ hostname }} --target-host {{ hostname }} --show-trace
 
+[arg("boot", long="boot", pattern="0|1")]
 [doc("Deploy the configuration for the specified host")]
 [group("servers")]
-deploy hostname:
-    {{ nh }} os switch --hostname {{ hostname }} --target-host root@{{ hostname }} --show-trace
+deploy hostname boot="0":
+    {{ nh }} os {{ if boot == "1" { "boot" } else { "switch" } }} --hostname {{ hostname }} --target-host root@{{ hostname }} --show-trace
 
 [arg("scope", pattern="all|profile|user")]
 [doc("Run garbage collection on the current system and rebuild the configuration")]

@@ -19,6 +19,7 @@
   age.secrets = {
     "passwords/quinn".file = "${self}/nix/secrets/blackstar/passwords/quinn.age";
     "passwords/root".file = "${self}/nix/secrets/blackstar/passwords/root.age";
+    "tranquil-pds/env".file = "${self}/nix/secrets/blackstar/tranquil-pds/env";
     "wireguard/private-key".file = "${self}/nix/secrets/blackstar/wireguard/private-key.age";
   };
 
@@ -56,31 +57,43 @@
     port = 6767;
   };
 
-  services.nginx = {
+  services.tranquil-pds = {
+    enable = true;
+    database.createLocally = true;
+
+    settings.server = {
+      contact_email = "quinn@emo.gay";
+      hostname = "pds.emo.gay";
+      port = 2121;
+    };
+
+    settings.email = {
+      from_address = "tranquil@emo.gay";
+      from_name = "Tranquil PDS";
+    };
+
+    environmentFiles = [
+      config.age.secrets."tranquil-pds/env".path
+    ];
+  };
+
+  services.caddy = {
     enable = true;
 
-    virtualHosts."jellyfin.emo.gay" = {
-      enableACME = true;
-      forceSSL = true;
+    virtualHosts."emo.gay".extraConfig = ''
+      reverse_proxy http://localhost:${toString config.services.website.port}
+    '';
 
-      locations."/" = {
-        proxyPass = "http://10.0.0.2:8096";
-        proxyWebsockets = true;
+    virtualHosts."pds.emo.gay".extraConfig = ''
+      reverse_proxy http://localhost:${toString config.services.tranquil-pds.settings.server.port}
+    '';
 
-        extraConfig = ''
-          proxy_set_header Host $host;
-          proxy_set_header X-Real-IP $remote_addr;
-          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-          proxy_set_header X-Forwarded-Proto $scheme;
-        '';
-      };
-    };
-
-    virtualHosts."emo.gay" = {
-      enableACME = true;
-      forceSSL = true;
-      locations."/".proxyPass = "http://localhost:${toString config.services.website.port}";
-    };
+    virtualHosts."jellyfin.emo.gay".extraConfig = ''
+      reverse_proxy http://10.0.0.2:8096 {
+        header_down X-Real-IP {http.request.remote}
+        header_down X-Forwarded-For {http.request.remote}
+      }
+    '';
   };
 
   networking.firewall.allowedTCPPorts = [

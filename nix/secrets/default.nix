@@ -4,6 +4,7 @@ in
 {
   "blackstar/passwords/quinn.age".publicKeys = keys.blackstar.all;
   "blackstar/passwords/root.age".publicKeys = keys.blackstar.all;
+  "blackstar/tranquil-pds/env".publicKeys = keys.blackstar.all;
   "blackstar/wireguard/private-key.age".publicKeys = keys.blackstar.all;
 
   "crona/passwords/quinn.age".publicKeys = keys.crona.all;
