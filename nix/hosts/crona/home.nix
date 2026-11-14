@@ -259,8 +259,8 @@ in
                 url = "https://witchsky.app";
               }
               {
-                name = "Aturi";
-                url = "https://aturi.to";
+                name = "PDS.ls";
+                url = "https://pds.ls";
               }
               {
                 name = "Marque";
